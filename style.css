@@ -1,0 +1,3966 @@
+/* ================================= */
+/* MOLOKO_20 — GLOBAL STYLES         */
+/* ================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #030303;
+    color: #f5f5f5;
+    font-family: "Courier New", monospace;
+    overflow-x: hidden;
+}
+
+
+/* ================================= */
+/* SCREEN SYSTEM                     */
+/* ================================= */
+
+.screen {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100svh;
+
+    display: none;
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(90, 0, 0, 0.18),
+            transparent 55%
+        ),
+        #030303;
+}
+
+.screen.active {
+    display: flex;
+}
+
+
+/* ================================= */
+/* FILE NUMBER                       */
+/* ================================= */
+
+.file-number {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    color: rgba(255, 255, 255, 0.35);
+}
+
+
+/* ================================= */
+/* SYSTEM STATUS                     */
+/* ================================= */
+
+.system-status {
+    position: absolute;
+    top: 25px;
+    left: 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    background: #b30000;
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 6px #b30000,
+        0 0 15px rgba(179, 0, 0, 0.8);
+
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    0%, 45% {
+        opacity: 1;
+    }
+
+    46%, 100% {
+        opacity: 0.25;
+    }
+}
+
+
+/* ================================= */
+/* CLASSIFIED FILE                  */
+/* ================================= */
+
+.classified-file {
+    width: min(90%, 650px);
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 35px 25px;
+
+    border-left: 1px solid rgba(160, 0, 0, 0.25);
+    border-right: 1px solid rgba(160, 0, 0, 0.25);
+
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.detected {
+    font-size: clamp(14px, 2vw, 20px);
+
+    letter-spacing: 3px;
+
+    margin-bottom: 28px;
+
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.divider {
+    height: 1px;
+    width: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(150, 0, 0, 0.7),
+        transparent
+    );
+
+    margin: 20px 0;
+}
+
+.file-info {
+    text-align: left;
+
+    width: min(100%, 420px);
+
+    margin: 0 auto;
+
+    line-height: 2.2;
+
+    font-size: clamp(12px, 1.8vw, 15px);
+
+    letter-spacing: 1px;
+
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.file-info span {
+    color: #f5f5f5;
+}
+
+
+/* ================================= */
+/* ACCESS BUTTON                     */
+/* ================================= */
+
+#accessButton {
+    margin-top: 30px;
+
+    padding: 15px 28px;
+
+    background: transparent;
+
+    border: 1px solid rgba(190, 0, 0, 0.8);
+
+    color: #f5f5f5;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+}
+
+#accessButton:hover {
+    background: rgba(130, 0, 0, 0.18);
+
+    box-shadow:
+        0 0 10px rgba(160, 0, 0, 0.5),
+        0 0 30px rgba(120, 0, 0, 0.25);
+}
+
+#accessButton:active {
+    transform: scale(0.96);
+}
+
+
+/* ================================= */
+/* SCANLINES                         */
+/* ================================= */
+
+.scanlines {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(255, 255, 255, 0.012) 4px
+    );
+}
+
+
+/* ================================= */
+/* ANIMATIONS                        */
+/* ================================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================================= */
+/* PHONE ADJUSTMENTS                 */
+/* ================================= */
+
+@media (max-width: 600px) {
+
+    .file-number {
+        top: 18px;
+        right: 18px;
+    }
+
+    .system-status {
+        top: 18px;
+        left: 18px;
+    }
+
+    .classified-file {
+        padding: 25px 18px;
+    }
+
+    .detected {
+        line-height: 1.6;
+    }
+
+}
+
+/* ================================= */
+/* SCREEN 2 — LOADING                */
+/* ================================= */
+
+.loading-screen {
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(110, 0, 0, 0.22),
+            transparent 55%
+        ),
+        #030303;
+}
+
+.loading-container {
+    width: min(85%, 650px);
+
+    text-align: center;
+
+    animation: fadeIn 1s ease forwards;
+}
+
+.loading-title {
+    font-size: clamp(12px, 2vw, 17px);
+
+    letter-spacing: 2px;
+
+    margin-bottom: 35px;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.progress-wrapper {
+    width: 100%;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+
+    border: 1px solid rgba(160, 0, 0, 0.55);
+
+    background: rgba(255, 255, 255, 0.03);
+
+    overflow: hidden;
+}
+
+#progressFill {
+    width: 0%;
+    height: 100%;
+
+    background: #a00000;
+
+    box-shadow:
+        0 0 10px rgba(180, 0, 0, 0.8),
+        0 0 25px rgba(130, 0, 0, 0.5);
+
+    transition: width 0.15s linear;
+}
+
+.progress-percent {
+    margin-top: 12px;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.loading-message {
+    min-height: 25px;
+
+    margin-top: 28px;
+
+    font-size: clamp(11px, 1.8vw, 14px);
+
+    letter-spacing: 1px;
+
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.loading-complete {
+    display: none;
+
+    text-align: center;
+
+    animation: completeReveal 1.5s ease forwards;
+}
+
+.loading-complete.visible {
+    display: block;
+}
+
+.complete-text {
+    font-size: clamp(30px, 7vw, 65px);
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.4),
+        0 0 35px rgba(150, 0, 0, 0.8);
+}
+
+.ready-text {
+    margin-top: 20px;
+
+    font-size: clamp(13px, 2vw, 18px);
+
+    letter-spacing: 3px;
+
+    color: #ffffff;
+}
+
+.access-granted {
+    margin-top: 12px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: rgba(190, 0, 0, 0.9);
+}
+
+@keyframes completeReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+/* =========================================
+   SCREEN 3 — BIRTHDAY REVEAL
+========================================= */
+
+.birthday-screen {
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(100, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.95) 65%
+        ),
+        #020202;
+}
+
+
+/* Red moving lights */
+
+.birthday-lights {
+    position: absolute;
+    inset: -30%;
+    background:
+        linear-gradient(
+            115deg,
+            transparent 42%,
+            rgba(150, 0, 0, 0.18) 48%,
+            transparent 54%
+        ),
+        linear-gradient(
+            65deg,
+            transparent 42%,
+            rgba(180, 0, 0, 0.15) 48%,
+            transparent 54%
+        );
+    animation: movingLights 8s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes movingLights {
+
+    from {
+        transform: rotate(-8deg) scale(1.1);
+    }
+
+    to {
+        transform: rotate(8deg) scale(1.2);
+    }
+
+}
+
+
+/* Disco ball */
+
+.disco-ball {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: clamp(55px, 9vw, 100px);
+
+    filter:
+        drop-shadow(0 0 15px rgba(255,255,255,0.25))
+        drop-shadow(0 0 35px rgba(150,0,0,0.45));
+
+    animation:
+        discoFloat 4s ease-in-out infinite,
+        discoGlow 2s ease-in-out infinite alternate;
+
+    z-index: 2;
+}
+
+@keyframes discoFloat {
+
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+
+}
+
+@keyframes discoGlow {
+
+    from {
+        filter:
+            drop-shadow(0 0 10px rgba(255,255,255,0.15))
+            drop-shadow(0 0 20px rgba(150,0,0,0.3));
+    }
+
+    to {
+        filter:
+            drop-shadow(0 0 20px rgba(255,255,255,0.35))
+            drop-shadow(0 0 45px rgba(180,0,0,0.6));
+    }
+
+}
+
+
+/* Main content */
+
+.birthday-content {
+    position: relative;
+    z-index: 5;
+
+    text-align: center;
+
+    opacity: 0;
+    animation: birthdayReveal 2s ease forwards;
+
+    padding: 30px;
+}
+
+@keyframes birthdayReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* Tiny status text */
+
+.birthday-small {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.4);
+
+    margin-bottom: 25px;
+}
+
+
+/* BIG BIRTHDAY TEXT */
+
+.birthday-content h1 {
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    font-size: clamp(45px, 9vw, 110px);
+
+    line-height: 0.95;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.35),
+        0 0 30px rgba(150,0,0,0.7),
+        0 0 60px rgba(100,0,0,0.5);
+}
+
+.birthday-content h1 span:last-child {
+    color: #b00000;
+}
+
+
+/* Welcome */
+
+.welcome-text {
+
+    margin-top: 25px;
+
+    font-size: clamp(14px, 2vw, 20px);
+
+    letter-spacing: 4px;
+
+    color: rgba(255,255,255,0.85);
+
+}
+
+
+/* Roast */
+
+.birthday-roast {
+
+    margin-top: 25px;
+
+    font-size: clamp(11px, 1.7vw, 15px);
+
+    line-height: 1.7;
+
+    color: rgba(255,255,255,0.6);
+
+}
+
+
+/* Let's go button */
+
+#letsGoButton {
+
+    margin-top: 35px;
+
+    padding: 15px 35px;
+
+    background: transparent;
+
+    border: 1px solid rgba(180,0,0,0.8);
+
+    color: white;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+
+}
+
+#letsGoButton:hover {
+
+    background: rgba(150,0,0,0.2);
+
+    box-shadow:
+        0 0 10px rgba(150,0,0,0.5),
+        0 0 30px rgba(150,0,0,0.3);
+
+    transform: translateY(-2px);
+
+}
+
+
+/* Scanlines */
+
+.screen3-scanlines {
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.015),
+            rgba(255,255,255,0.015) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    opacity: 0.35;
+
+}
+
+
+/* Phone */
+
+@media (max-width: 600px) {
+
+    .birthday-content {
+        padding: 20px;
+    }
+
+    .birthday-content h1 {
+        font-size: clamp(42px, 14vw, 75px);
+        letter-spacing: 3px;
+    }
+
+    .birthday-roast {
+        font-size: 11px;
+    }
+
+    .birthday-small {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    #letsGoButton {
+        padding: 13px 28px;
+    }
+
+}
+
+/* =========================================
+   SCREEN 4 — MEMORY ARCHIVE
+========================================= */
+
+.archive-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 100vh;
+    height: auto;
+
+    overflow-y: auto;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(100, 0, 0, 0.18),
+            transparent 45%
+        ),
+        #050505;
+
+    padding-bottom: 100px;
+}
+
+.archive-screen.active {
+    display: flex;
+}
+
+
+/* HEADER */
+
+.archive-header {
+    width: min(900px, 90%);
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+.archive-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: rgba(180, 0, 0, 0.8);
+}
+
+.archive-header h2 {
+    margin-top: 18px;
+
+    font-size: clamp(22px, 5vw, 42px);
+
+    letter-spacing: 3px;
+
+    color: white;
+}
+
+.archive-header p {
+    margin-top: 12px;
+
+    color: rgba(255,255,255,0.45);
+
+    letter-spacing: 2px;
+
+    font-size: 12px;
+}
+
+.archive-line {
+    width: 100%;
+    height: 1px;
+
+    margin-top: 35px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(160,0,0,0.6),
+        transparent
+    );
+}
+
+
+/* MEMORY SECTION */
+
+.memory-section {
+    width: min(1000px, 92%);
+}
+
+
+/* YEAR HEADINGS */
+
+.year-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+
+    margin-top: 60px;
+    margin-bottom: 25px;
+
+    border-left: 2px solid #900000;
+
+    padding-left: 15px;
+}
+
+.year-heading span {
+    font-size: clamp(30px, 6vw, 55px);
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    color: white;
+}
+
+.year-heading small {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.35);
+}
+
+
+/* POLAROID GRID */
+
+.polaroid-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(210px, 1fr));
+
+    gap: 55px 35px;
+
+    align-items: center;
+
+    padding: 20px 10px 40px;
+}
+
+
+/* POLAROIDS */
+
+.polaroid,
+.video-polaroid {
+
+    background: #eeeeee;
+
+    padding: 10px 10px 18px;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.6);
+
+    color: #111;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+    animation: polaroidAppear 0.8s ease both;
+}
+
+.polaroid:hover,
+.video-polaroid:hover {
+
+    transform:
+        translateY(-8px)
+        rotate(0deg)
+        scale(1.03);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.8),
+        0 0 25px rgba(130,0,0,0.25);
+
+}
+
+
+/* PLACEHOLDERS */
+
+.photo-placeholder,
+.video-placeholder {
+
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #171717,
+            #080808
+        );
+
+    color: rgba(255,255,255,0.35);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+}
+
+.video-placeholder {
+    aspect-ratio: 16 / 10;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.video-placeholder span {
+    font-size: 30px;
+    color: rgba(180,0,0,0.8);
+}
+
+
+/* CAPTIONS */
+
+.polaroid-caption {
+
+    margin-top: 12px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    color: #222;
+}
+
+
+/* ROTATIONS */
+
+.rotate-left {
+    transform: rotate(-2.5deg);
+}
+
+.rotate-right {
+    transform: rotate(2.5deg);
+}
+
+
+/* ANIMATION */
+
+@keyframes polaroidAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(25px)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* OLDEST MEMORY */
+
+.oldest-year {
+    margin-top: 90px;
+}
+
+.oldest-memory {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 70px;
+
+    padding: 30px 20px 80px;
+
+}
+
+.final-archive-photo {
+    width: min(330px, 80vw);
+}
+
+.oldest-text {
+    max-width: 350px;
+}
+
+.oldest-text p {
+
+    color: rgba(180,0,0,0.8);
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+}
+
+.oldest-text h3 {
+
+    margin-top: 15px;
+
+    font-size: clamp(22px, 4vw, 35px);
+
+    line-height: 1.2;
+
+    color: white;
+
+}
+
+.oldest-text span {
+
+    display: block;
+
+    margin-top: 18px;
+
+    color: rgba(255,255,255,0.5);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+}
+
+
+/* ARCHIVE COMPLETE */
+
+.archive-complete {
+
+    text-align: center;
+
+    padding:
+        70px 20px
+        120px;
+
+}
+
+.complete-line {
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: rgba(180,0,0,0.8);
+
+}
+
+.timeline {
+
+    margin-top: 25px;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: rgba(255,255,255,0.4);
+
+}
+
+.archive-complete h3 {
+
+    margin-top: 30px;
+
+    font-size: clamp(40px, 8vw, 75px);
+
+    letter-spacing: 5px;
+
+    color: white;
+
+}
+
+.archive-complete p {
+
+    color: rgba(255,255,255,0.5);
+
+    margin-top: 10px;
+
+}
+
+
+#continueArchive {
+
+    margin-top: 35px;
+
+    padding: 15px 35px;
+
+    background: transparent;
+
+    border: 1px solid rgba(180,0,0,0.8);
+
+    color: white;
+
+    font-family: "Courier New", monospace;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+}
+
+#continueArchive:hover {
+
+    background: rgba(150,0,0,0.2);
+
+    box-shadow:
+        0 0 15px rgba(150,0,0,0.5);
+
+}
+
+
+/* PHONE */
+
+@media (max-width: 600px) {
+
+    .archive-header {
+        padding-top: 55px;
+    }
+
+    .archive-header h2 {
+        font-size: 23px;
+    }
+
+    .year-heading {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .polaroid-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 35px 18px;
+    }
+
+    .polaroid,
+    .video-polaroid {
+        padding: 7px 7px 12px;
+    }
+
+    .polaroid-caption {
+        font-size: 8px;
+    }
+
+    .oldest-memory {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .oldest-text {
+        max-width: 300px;
+    }
+
+}
+
+/* FIX — ALLOW MEMORY ARCHIVE TO SCROLL */
+
+#screen4 {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: visible;
+}
+
+/* =========================================
+   REAL MEMORY PHOTOS & VIDEOS
+========================================= */
+
+.polaroid img,
+.video-polaroid video {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    background: #111;
+}
+
+.video-polaroid video {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+
+/* Make the oldest photo slightly larger */
+
+.final-archive-photo img {
+    aspect-ratio: 1 / 1;
+}
+
+
+/* Video controls */
+
+.video-polaroid video {
+    cursor: pointer;
+}
+
+/* Larger 2024 video */
+
+.video-2024 {
+    grid-column: span 2;
+    width: 100%;
+    max-width: 600px;
+    justify-self: center;
+}
+
+.video-2024 video {
+    aspect-ratio: 16 / 9;
+}
+
+/* =========================================
+   SCREEN 5 — THE DRIVE-OFF
+========================================= */
+
+.driveoff-screen {
+
+    min-height: 100vh;
+    height: auto;
+
+    overflow-y: auto;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    padding:
+        70px 20px
+        100px;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(100, 0, 0, 0.28),
+            transparent 50%
+        ),
+        #030303;
+
+    position: relative;
+}
+
+.driveoff-screen.active {
+    display: flex;
+}
+
+
+/* Background glow */
+
+.driveoff-glow {
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(140, 0, 0, 0.12),
+            transparent 70%
+        );
+
+    top: 20%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+
+}
+
+
+/* Main content */
+
+.driveoff-content {
+
+    position: relative;
+    z-index: 2;
+
+    width: min(1000px, 94%);
+
+    text-align: center;
+
+}
+
+
+/* Label */
+
+.driveoff-label {
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: rgba(180,0,0,0.85);
+
+    margin-bottom: 25px;
+
+}
+
+
+/* Versus */
+
+.versus {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    font-size: clamp(14px, 3vw, 22px);
+
+    letter-spacing: 3px;
+
+}
+
+.versus b {
+
+    font-size: 11px;
+
+    color: rgba(255,255,255,0.35);
+
+}
+
+
+/* Title */
+
+.driveoff-content h1 {
+
+    margin-top: 15px;
+
+    font-size: clamp(42px, 9vw, 85px);
+
+    letter-spacing: 6px;
+
+    color: white;
+
+    text-shadow:
+        0 0 20px rgba(150,0,0,0.65),
+        0 0 45px rgba(100,0,0,0.35);
+
+}
+
+
+/* Intro */
+
+.driveoff-intro {
+
+    margin-top: 20px;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    color: rgba(255,255,255,0.5);
+
+}
+
+
+/* Driver section */
+
+.driver-section {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 35px;
+
+    margin-top: 60px;
+
+}
+
+
+/* Driver cards */
+
+.driver-card {
+
+    padding: 20px;
+
+    border: 1px solid rgba(150,0,0,0.25);
+
+    background:
+        rgba(255,255,255,0.025);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.5);
+
+}
+
+.driver-number {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: rgba(180,0,0,0.8);
+
+}
+
+.driver-card h2 {
+
+    margin: 12px 0 20px;
+
+    font-size: 22px;
+
+    letter-spacing: 4px;
+
+}
+
+.driver-card video {
+
+    width: 100%;
+
+    display: block;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    background: #000;
+
+}
+
+.run-label {
+
+    margin-top: 12px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.4);
+
+}
+
+
+/* Challenge */
+
+.challenge-box {
+
+    margin: 65px auto 0;
+
+    max-width: 650px;
+
+    padding: 30px;
+
+    border: 1px solid rgba(150,0,0,0.35);
+
+    background:
+        rgba(100,0,0,0.06);
+
+}
+
+.challenge-title {
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: rgba(180,0,0,0.85);
+
+    margin-bottom: 20px;
+
+}
+
+.challenge-rules p {
+
+    margin: 9px 0;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    color: rgba(255,255,255,0.7);
+
+}
+
+.safe-note {
+
+    margin-top: 22px;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    color: rgba(255,255,255,0.3);
+
+}
+
+
+/* Leaderboard */
+
+.leaderboard {
+
+    width: min(500px, 90%);
+
+    margin: 60px auto 0;
+
+    text-align: left;
+
+}
+
+.leaderboard-title {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: rgba(255,255,255,0.35);
+
+    margin-bottom: 20px;
+
+}
+
+.driver-score {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+}
+
+.driver-score strong {
+
+    color: rgba(180,0,0,0.9);
+
+}
+
+.race-status {
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: rgba(180,0,0,0.7);
+
+}
+
+
+/* Details */
+
+.race-details {
+
+    margin-top: 40px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    line-height: 2;
+
+    color: rgba(255,255,255,0.35);
+
+}
+
+.race-details span {
+
+    color: rgba(255,255,255,0.65);
+
+}
+
+
+/* Pending */
+
+.pending-message {
+
+    margin-top: 55px;
+
+    font-size: clamp(15px, 3vw, 22px);
+
+    letter-spacing: 3px;
+
+    color: white;
+
+}
+
+
+/* Button */
+
+#acceptChallenge {
+
+    margin-top: 30px;
+
+    padding: 15px 30px;
+
+    background: transparent;
+
+    border: 1px solid rgba(180,0,0,0.8);
+
+    color: white;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+}
+
+#acceptChallenge:hover {
+
+    background: rgba(150,0,0,0.18);
+
+    box-shadow:
+        0 0 15px rgba(150,0,0,0.5);
+
+}
+
+
+/* Accepted */
+
+.challenge-accepted {
+
+    display: none;
+
+    margin-top: 35px;
+
+    animation: challengeReveal 0.8s ease forwards;
+
+}
+
+.challenge-accepted.visible {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.challenge-accepted p {
+
+    margin: 0;
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+}
+
+.challenge-accepted span {
+
+    font-size: 11px;
+
+    color: rgba(255,255,255,0.55);
+
+}
+
+@keyframes challengeReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Phone */
+
+@media (max-width: 600px) {
+
+    .driveoff-screen {
+        padding-top: 50px;
+    }
+
+    .driver-section {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .driveoff-content h1 {
+        font-size: 43px;
+        letter-spacing: 4px;
+    }
+
+    .versus {
+        gap: 12px;
+    }
+
+}
+
+/* =========================================
+   SCREEN 5 — CENTER ALIGNMENT
+========================================= */
+
+.driveoff-content {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.driver-card {
+    text-align: center;
+}
+
+.leaderboard {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.leaderboard-title {
+    text-align: center;
+}
+
+.driver-score {
+    text-align: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.race-status {
+    text-align: center;
+}
+
+.race-details {
+    text-align: center;
+}
+
+.challenge-box {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.challenge-rules {
+    text-align: center;
+}
+
+.pending-message {
+    text-align: center;
+}
+
+.challenge-accepted {
+    text-align: center;
+    align-items: center;
+}
+
+.run-label {
+    text-align: center;
+}
+
+/* =========================================
+   THE ORIGINAL ARGUMENT
+========================================= */
+
+.argument-section {
+
+    width: min(650px, 90%);
+
+    margin: 70px auto 0;
+
+    text-align: center;
+
+    padding-top: 40px;
+
+    border-top:
+        1px solid rgba(180, 0, 0, 0.2);
+}
+
+.argument-label {
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: rgba(180, 0, 0, 0.8);
+
+    margin-bottom: 15px;
+}
+
+.argument-section h2 {
+
+    margin: 0;
+
+    font-size: clamp(20px, 4vw, 30px);
+
+    letter-spacing: 3px;
+}
+
+.argument-section p {
+
+    margin: 15px 0 25px;
+
+    font-size: 11px;
+
+    color: rgba(255,255,255,0.45);
+
+    letter-spacing: 1px;
+}
+
+.argument-video {
+
+    width: 100%;
+
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    background: rgba(255,255,255,0.025);
+
+    border:
+        1px solid rgba(180,0,0,0.25);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.5);
+}
+
+.argument-video video {
+
+    width: 100%;
+
+    display: block;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    background: #000;
+}
+
+/* =========================================
+   SCREEN 6 — THE SOUNDTRACK
+========================================= */
+
+.soundtrack-screen {
+
+    min-height: 100vh;
+    height: auto;
+
+    overflow-y: auto;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 70px 20px 100px;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(110, 0, 0, 0.25),
+            transparent 45%
+        ),
+        #020202;
+
+}
+
+.soundtrack-screen.active {
+    display: flex;
+}
+
+
+.soundtrack-content {
+
+    width: min(700px, 94%);
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.audio-file {
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: rgba(180, 0, 0, 0.8);
+
+    margin-bottom: 20px;
+
+}
+
+
+.soundtrack-content h1 {
+
+    margin: 0;
+
+    font-size: clamp(40px, 9vw, 75px);
+
+    letter-spacing: 6px;
+
+    text-shadow:
+        0 0 20px rgba(150, 0, 0, 0.6);
+
+}
+
+
+.soundtrack-intro {
+
+    margin-top: 20px;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+
+    letter-spacing: 1px;
+
+    color: rgba(255,255,255,0.45);
+
+}
+
+
+/* =========================================
+   RECORD
+========================================= */
+
+.record-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 45px 0 35px;
+
+}
+
+
+.record {
+
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            #090909 0px,
+            #090909 3px,
+            #151515 4px,
+            #090909 5px
+        );
+
+    box-shadow:
+        0 0 35px rgba(150,0,0,0.25),
+        0 20px 50px rgba(0,0,0,0.7);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    animation: recordSpin 8s linear infinite;
+
+}
+
+
+.record-center {
+
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #7d0000,
+            #260000
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 0 15px rgba(150,0,0,0.5);
+
+}
+
+
+.record-center span {
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+}
+
+
+@keyframes recordSpin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================
+   MEMORY PAPER
+========================================= */
+
+.memory-note-wrapper {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 10px auto 45px;
+
+    perspective: 1000px;
+
+}
+
+
+.memory-note {
+
+    position: relative;
+
+    width: min(560px, 92%);
+
+    min-height: 390px;
+
+    padding: 45px 42px 35px;
+
+    box-sizing: border-box;
+
+    text-align: left;
+
+    color: #241b16;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.12),
+            rgba(255,255,255,0.12)
+        ),
+        #eee5d3;
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,0.65),
+        0 5px 12px rgba(0,0,0,0.35);
+
+    transform: rotate(-1deg);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+
+}
+
+
+.memory-note::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border: 1px solid rgba(80,55,40,0.12);
+
+    pointer-events: none;
+
+}
+
+
+.paper-tape {
+
+    position: absolute;
+
+    top: -15px;
+
+    left: 50%;
+
+    transform: translateX(-50%) rotate(-2deg);
+
+    width: 105px;
+
+    height: 32px;
+
+    background: rgba(205,190,160,0.75);
+
+    box-shadow:
+        0 2px 5px rgba(0,0,0,0.15);
+
+}
+
+
+.note-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: rgba(50,35,25,0.55);
+
+}
+
+
+.note-line {
+
+    height: 1px;
+
+    background: rgba(60,40,25,0.18);
+
+    margin: 13px 0 25px;
+
+}
+
+
+.note-content {
+
+    padding: 0 8px;
+
+}
+
+
+.note-label {
+
+    margin: 0 0 8px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: rgba(50,35,25,0.55);
+
+}
+
+
+.note-content h2 {
+
+    margin: 0 0 22px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(21px, 5vw, 30px);
+
+    letter-spacing: 1px;
+
+    font-weight: normal;
+
+}
+
+
+#noteText {
+
+    margin: 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    line-height: 1.85;
+
+    color: rgba(35,25,18,0.82);
+
+}
+
+
+.note-signature {
+
+    margin-top: 25px;
+
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+
+    font-size: 21px;
+
+    color: rgba(50,35,25,0.75);
+
+}
+
+
+.note-footer {
+
+    position: absolute;
+
+    bottom: 18px;
+
+    left: 42px;
+
+    right: 42px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color: rgba(50,35,25,0.35);
+
+    text-align: right;
+
+}
+
+
+/* =========================================
+   NOW PLAYING
+========================================= */
+
+.now-label {
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: rgba(180,0,0,0.8);
+
+}
+
+
+.now-playing h2 {
+
+    margin: 10px 0 5px;
+
+    font-size: clamp(18px, 4vw, 27px);
+
+    letter-spacing: 2px;
+
+}
+
+
+.now-playing p {
+
+    margin: 0;
+
+    font-size: 10px;
+
+    color: rgba(255,255,255,0.4);
+
+}
+
+
+/* =========================================
+   PLAYER CONTROLS
+========================================= */
+
+.player-controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 25px;
+
+}
+
+
+.player-controls button {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    border: 1px solid rgba(180,0,0,0.45);
+
+    color: white;
+
+    font-family: "Courier New", monospace;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+}
+
+
+.player-controls button:nth-child(2) {
+
+    width: 58px;
+
+    height: 58px;
+
+    background: rgba(120,0,0,0.2);
+
+    border-color: rgba(180,0,0,0.8);
+
+}
+
+
+.player-controls button:hover {
+
+    box-shadow:
+        0 0 20px rgba(150,0,0,0.4);
+
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.audio-progress {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 20px auto 50px;
+
+    width: min(500px, 90%);
+
+    font-size: 8px;
+
+    color: rgba(255,255,255,0.3);
+
+}
+
+
+.audio-bar {
+
+    height: 2px;
+
+    background: rgba(255,255,255,0.1);
+
+    flex: 1;
+
+}
+
+
+#audioProgressFill {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: rgba(180,0,0,0.8);
+
+    transition: width 0.15s linear;
+
+}
+
+
+/* =========================================
+   TRACKLIST
+========================================= */
+
+.tracklist {
+
+    width: min(600px, 100%);
+
+    margin: auto;
+
+}
+
+
+.tracklist-heading {
+
+    text-align: left;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: rgba(255,255,255,0.3);
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+}
+
+
+.track {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 18px 5px;
+
+    background: transparent;
+
+    border: none;
+
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+
+    color: white;
+
+    font-family: "Courier New", monospace;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+}
+
+
+.track:hover {
+
+    background: rgba(120,0,0,0.08);
+
+    padding-left: 12px;
+
+}
+
+
+.track.active-track {
+
+    background: rgba(120,0,0,0.12);
+
+}
+
+
+.track-number {
+
+    font-size: 9px;
+
+    color: rgba(180,0,0,0.7);
+
+    width: 25px;
+
+}
+
+
+.track-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    flex: 1;
+
+}
+
+
+.track-info strong {
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    font-weight: normal;
+
+}
+
+
+.track-info small {
+
+    font-size: 8px;
+
+    color: rgba(255,255,255,0.35);
+
+}
+
+
+.track-arrow {
+
+    font-size: 14px;
+
+    color: rgba(255,255,255,0.3);
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.soundtrack-footer {
+
+    margin-top: 55px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: rgba(180,0,0,0.65);
+
+}
+
+
+#continueSoundtrack {
+
+    margin-top: 30px;
+
+    padding: 14px 28px;
+
+    background: transparent;
+
+    border: 1px solid rgba(180,0,0,0.7);
+
+    color: white;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+}
+
+
+#continueSoundtrack:hover {
+
+    background: rgba(120,0,0,0.15);
+
+}
+
+
+/* =========================================
+   PHONE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .soundtrack-content h1 {
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .record {
+
+        width: 145px;
+
+        height: 145px;
+
+    }
+
+
+    .record-center {
+
+        width: 43px;
+
+        height: 43px;
+
+    }
+
+
+    .memory-note {
+
+        min-height: 420px;
+
+        padding: 40px 28px 35px;
+
+    }
+
+
+    .note-content {
+
+        padding: 0 4px;
+
+    }
+
+
+    #noteText {
+
+        font-size: 13px;
+
+        line-height: 1.8;
+
+    }
+
+
+    .note-footer {
+
+        left: 28px;
+
+        right: 28px;
+
+    }
+
+
+    .track-info strong {
+
+        font-size: 10px;
+
+    }
+
+
+    .track-info small {
+
+        font-size: 7px;
+
+    }
+
+}
+
+/* =========================================
+   HANDWRITTEN MEMORY EFFECT
+========================================= */
+
+.note-content h2,
+#noteText,
+.note-signature {
+
+    font-family: "Segoe Print",
+                 "Bradley Hand",
+                 "Comic Sans MS",
+                 cursive;
+
+}
+
+#noteText {
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    letter-spacing: 0.2px;
+
+}
+
+.note-content h2 {
+
+    font-size: clamp(20px, 5vw, 29px);
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================
+   PAPER ENTRANCE ANIMATION
+========================================= */
+
+.memory-note {
+
+    animation: paperAppear 0.8s ease forwards;
+
+}
+
+
+@keyframes paperAppear {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            rotate(-4deg)
+            scale(0.96);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(-1deg)
+            scale(1);
+
+    }
+
+}
+
+.memory-note {
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.08)
+        ),
+        repeating-linear-gradient(
+            0deg,
+            #eee5d3 0px,
+            #eee5d3 28px,
+            #e9dfcc 29px
+        );
+
+}
+
+.record.paused {
+
+    animation-play-state: paused;
+
+}
+
+/* ================================= */
+/* SCREEN 7 — PERSONAL FILE          */
+/* ================================= */
+
+.personal-file-screen {
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(120, 20, 55, 0.25),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #080808,
+            #16090f 60%,
+            #080808
+        );
+
+    color: #f5e7eb;
+
+    min-height: 100vh;
+
+    padding: 70px 20px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+/* BACKGROUND GRID */
+
+.personal-file-bg {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.02) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.02) 1px,
+            transparent 1px
+        );
+
+    background-size: 35px 35px;
+
+    pointer-events: none;
+}
+
+
+/* MAIN CONTENT */
+
+.personal-file-content {
+    position: relative;
+
+    max-width: 850px;
+
+    margin: auto;
+
+    z-index: 1;
+}
+
+
+/* FILE LABEL */
+
+.personal-file-label {
+    color: #c9829d;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 4px;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+
+/* LINE */
+
+.personal-file-line {
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #8e304f,
+            transparent
+        );
+
+    margin-bottom: 45px;
+}
+
+
+/* HEADING */
+
+.personal-file-heading {
+    position: relative;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.personal-file-heading span {
+    display: block;
+
+    font-size:
+        clamp(
+            3.5rem,
+            12vw,
+            8rem
+        );
+
+    font-weight: 900;
+
+    letter-spacing: -4px;
+
+    color: #f6dce5;
+
+    line-height: 0.9;
+}
+
+.personal-file-heading strong {
+    position: absolute;
+
+    font-size:
+        clamp(
+            7rem,
+            25vw,
+            16rem
+        );
+
+    color: rgba(137, 40, 73, 0.12);
+
+    right: 0;
+
+    top: -75px;
+
+    z-index: -1;
+}
+
+
+/* INTRO */
+
+.personal-file-intro {
+    text-align: center;
+
+    max-width: 500px;
+
+    margin: 0 auto 70px;
+
+    color: #c9829d;
+
+    font-size: 0.75rem;
+
+    line-height: 2;
+
+    letter-spacing: 3px;
+}
+
+
+/* PERSONAL SECTIONS */
+
+.personal-section {
+    position: relative;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    border:
+        1px solid
+        rgba(183, 75, 111, 0.25);
+
+    border-left:
+        3px solid
+        #8e304f;
+
+    padding: 35px;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.personal-section:hover {
+    transform: translateY(-4px);
+
+    border-color: #c9829d;
+}
+
+
+/* SECTION NUMBERS */
+
+.section-number {
+    color: #a94d70;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+/* HEADINGS */
+
+.personal-section h2 {
+    color: #f3c4d5;
+
+    font-size:
+        clamp(
+            1.2rem,
+            4vw,
+            1.8rem
+        );
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+
+/* PARAGRAPHS */
+
+.personal-section p {
+    color: #d8c4cb;
+
+    font-size: 0.95rem;
+
+    line-height: 2;
+
+    margin-bottom: 20px;
+}
+
+.personal-section p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* FUNNY SECTION */
+
+.funny-section {
+    border-left-color: #d49a38;
+
+    background:
+        rgba(212, 154, 56, 0.04);
+}
+
+.funny-section h2 {
+    color: #e5c17a;
+}
+
+
+/* FINAL NOTE */
+
+.final-note {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(137, 40, 73, 0.15),
+            rgba(255, 255, 255, 0.03)
+        );
+
+    border:
+        1px solid
+        rgba(201, 130, 157, 0.5);
+
+    padding: 40px;
+}
+
+.final-note h2 {
+    text-align: center;
+}
+
+
+/* SIGNATURE */
+
+.final-signature {
+    text-align: center;
+
+    color: #f3a9c3 !important;
+
+    font-size: 1.2rem !important;
+
+    font-weight: bold;
+
+    margin-top: 35px;
+}
+
+
+/* CONTINUE BUTTON */
+
+#continuePersonalFile {
+    display: block;
+
+    margin: 55px auto 0;
+
+    padding: 16px 30px;
+
+    background: transparent;
+
+    border:
+        1px solid
+        #a94d70;
+
+    color: #f3c4d5;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        all 0.3s ease;
+}
+
+#continuePersonalFile:hover {
+    background: #8e304f;
+
+    color: white;
+
+    box-shadow:
+        0 0 25px
+        rgba(142, 48, 79, 0.5);
+}
+
+
+/* PHONE */
+
+@media (max-width: 600px) {
+
+    .personal-file-screen {
+        padding: 45px 15px;
+    }
+
+    .personal-section {
+        padding: 25px 20px;
+    }
+
+    .personal-section p {
+        font-size: 0.9rem;
+
+        line-height: 1.9;
+    }
+
+    .final-note {
+        padding: 25px 20px;
+    }
+
+}
+
+/* ================================= */
+/* SCREEN 8 — THE YEARS              */
+/* ================================= */
+
+.years-screen {
+    background: #050505;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: none;
+    min-height: 100vh;
+}
+
+.years-screen.active {
+    display: block;
+}
+
+.years-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,255,255,0.045),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(120, 0, 40, 0.08),
+            transparent 35%
+        );
+    z-index: 0;
+}
+
+.years-content {
+    position: relative;
+    z-index: 1;
+    width: min(1100px, 90%);
+    margin: 0 auto;
+    padding: 110px 0 100px;
+}
+
+
+/* ================================= */
+/* INTRO                             */
+/* ================================= */
+
+.years-intro {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.years-intro .file-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 25px;
+}
+
+.years-intro h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(4rem, 12vw, 9rem);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #f4eee5;
+    line-height: 0.9;
+}
+
+.years-subtitle {
+    max-width: 520px;
+    margin-top: 35px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(244,238,229,0.62);
+}
+
+.years-line {
+    width: 1px;
+    height: 90px;
+    margin-top: 50px;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.5),
+        transparent
+    );
+}
+
+
+/* ================================= */
+/* GROWTH MOMENTS                    */
+/* ================================= */
+
+.growth-moment {
+    min-height: 85vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+    position: relative;
+    padding: 100px 0;
+}
+
+.growth-moment.reverse {
+    direction: rtl;
+}
+
+.growth-moment.reverse > * {
+    direction: ltr;
+}
+
+
+/* ================================= */
+/* NUMBERS                           */
+/* ================================= */
+
+.moment-number {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    margin: 0;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.3);
+}
+
+
+/* ================================= */
+/* PHOTOS                            */
+/* ================================= */
+
+.growth-photo {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    justify-self: center;
+}
+
+.growth-photo::before {
+    content: "";
+    position: absolute;
+    inset: -10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transform: rotate(-1.5deg);
+}
+
+.growth-photo img {
+    display: block;
+    width: 100%;
+    height: 540px;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+
+    filter: saturate(0.9) contrast(1.03);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.55);
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.growth-photo:hover img {
+    transform: scale(1.025);
+    filter: saturate(1) contrast(1.05);
+}
+
+
+/* ================================= */
+/* CAPTIONS                          */
+/* ================================= */
+
+.moment-caption {
+    max-width: 420px;
+}
+
+.moment-caption span {
+    display: block;
+    margin-bottom: 18px;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.38);
+}
+
+.moment-caption h2 {
+    margin: 0 0 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 400;
+    line-height: 1;
+    color: #f4eee5;
+}
+
+.moment-caption p {
+    margin: 0;
+    max-width: 360px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(244,238,229,0.58);
+}
+
+
+/* ================================= */
+/* MILESTONE                         */
+/* ================================= */
+
+.growth-moment.milestone {
+    min-height: 95vh;
+}
+
+.growth-moment.milestone .growth-photo img {
+    height: 620px;
+}
+
+.growth-moment.milestone .moment-caption h2 {
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+}
+
+
+/* ================================= */
+/* FINAL RUGBY MOMENT                */
+/* ================================= */
+
+.growth-finale {
+    min-height: 100vh;
+    padding: 150px 0 100px;
+    text-align: center;
+    position: relative;
+}
+
+.final-label {
+    margin: 0 0 40px;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: rgba(255,255,255,0.4);
+}
+
+.final-rugby-photo {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto 100px;
+    position: relative;
+}
+
+.final-rugby-photo::before {
+    content: "";
+    position: absolute;
+    inset: -15px;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.final-rugby-photo img {
+    display: block;
+    width: 100%;
+    max-height: 780px;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,0.7);
+}
+
+
+/* ================================= */
+/* FINAL TEXT                        */
+/* ================================= */
+
+.final-text {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.final-small {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 30px;
+}
+
+.final-text h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 400;
+    color: #f4eee5;
+    margin: 0 0 60px;
+}
+
+
+/* ================================= */
+/* BIRTHDAY MATH                     */
+/* ================================= */
+
+.birthday-math {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+.math-step {
+    width: min(500px, 90%);
+    padding: 30px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.math-step strong {
+    display: block;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    color: #f4eee5;
+    margin-bottom: 12px;
+}
+
+.math-step span {
+    display: block;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: rgba(244,238,229,0.55);
+}
+
+.math-symbol {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.3);
+}
+
+
+/* ================================= */
+/* 20                                */
+/* ================================= */
+
+.twenty {
+    margin-top: 100px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(9rem, 28vw, 22rem);
+    font-weight: 400;
+    line-height: 0.75;
+    letter-spacing: -0.06em;
+    color: #f4eee5;
+}
+
+.final-text h1 {
+    margin: 70px 0 25px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 6vw, 5rem);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: #f4eee5;
+}
+
+.final-note {
+    color: rgba(244,238,229,0.5);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+}
+
+
+/* ================================= */
+/* NEXT FILE                         */
+/* ================================= */
+
+.years-next {
+    display: flex;
+    justify-content: center;
+    padding: 80px 0 30px;
+}
+
+.years-next button {
+    padding: 17px 35px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #f4eee5;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    cursor: pointer;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.years-next button:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.5);
+    transform: translateY(-2px);
+}
+
+
+/* ================================= */
+/* MOBILE                            */
+/* ================================= */
+
+@media (max-width: 700px) {
+
+    .years-content {
+        width: 88%;
+        padding-top: 60px;
+    }
+
+    .years-intro {
+        min-height: 75vh;
+    }
+
+    .growth-moment,
+    .growth-moment.reverse {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding: 100px 0;
+        direction: ltr;
+    }
+
+    .growth-photo {
+        max-width: 100%;
+    }
+
+    .growth-photo img {
+        height: 430px;
+    }
+
+    .growth-moment.milestone .growth-photo img {
+        height: 500px;
+    }
+
+    .moment-caption {
+        max-width: 100%;
+    }
+
+    .moment-number {
+        top: 35px;
+    }
+
+    .growth-finale {
+        padding-top: 100px;
+    }
+
+    .final-rugby-photo {
+        margin-bottom: 70px;
+    }
+
+    .final-rugby-photo img {
+        max-height: 600px;
+    }
+
+    .twenty {
+        margin-top: 70px;
+        font-size: 42vw;
+    }
+
+    .final-text h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+}
+
+/* ========================================= */
+/* SCREEN 9 — THE NEXT CHAPTER               */
+/* ========================================= */
+
+.final-journey-screen {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #050505;
+    color: #fff;
+}
+
+
+/* ========================================= */
+/* INTRO                                     */
+/* ========================================= */
+
+.final-journey-screen .drive-intro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.final-journey-screen .drive-intro.fade-out {
+    opacity: 0;
+    transform: scale(1.05);
+}
+
+.final-journey-screen .drive-file-label {
+    font-size: 11px;
+    letter-spacing: 5px;
+    opacity: 0.55;
+    margin-bottom: 25px;
+}
+
+.final-journey-screen .drive-intro h1 {
+    font-size: clamp(42px, 9vw, 90px);
+    letter-spacing: 7px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.final-journey-screen .drive-intro-text {
+    margin-top: 25px;
+    font-size: 16px;
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
+
+.final-journey-screen .drive-question {
+    margin-top: 8px;
+    font-size: 20px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+#startDrive {
+    margin-top: 40px;
+    padding: 15px 28px;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: transparent;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition:
+        background 0.4s ease,
+        color 0.4s ease,
+        transform 0.4s ease;
+}
+
+#startDrive:hover {
+    background: white;
+    color: black;
+    transform: translateY(-3px);
+}
+
+
+/* ========================================= */
+/* CINEMATIC VIDEO                           */
+/* ========================================= */
+
+.final-journey-screen .drive-scene {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.2s ease;
+    z-index: 10;
+}
+
+.final-journey-screen .drive-scene.drive-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* Video fills screen */
+
+#journeyVideo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
+}
+
+
+/* Slight cinematic darkening */
+
+.final-journey-screen .drive-scene::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.15),
+            rgba(0,0,0,0.05) 45%,
+            rgba(0,0,0,0.4)
+        );
+    pointer-events: none;
+    z-index: 2;
+}
+
+
+/* ========================================= */
+/* GOLDEN LIGHT TRANSITION                   */
+/* ========================================= */
+
+.light-transition {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,1) 0%,
+            rgba(255,240,190,0.95) 25%,
+            rgba(245,190,90,0.7) 55%,
+            rgba(255,170,50,0) 100%
+        );
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.light-transition.light-active {
+    animation: goldenLight 3s ease forwards;
+}
+
+@keyframes goldenLight {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    20% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    55% {
+        opacity: 0.95;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+
+}
+
+
+/* ========================================= */
+/* VERSE                                     */
+/* ========================================= */
+
+.verse-screen {
+    position: absolute;
+    inset: 0;
+    z-index: 7;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 35px;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(80,60,35,0.35),
+            rgba(0,0,0,0.96) 75%
+        );
+
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 1.8s ease,
+        visibility 1.8s ease;
+}
+
+.verse-screen.verse-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.verse-reference {
+    font-size: 12px;
+    letter-spacing: 5px;
+    opacity: 0.65;
+    margin-bottom: 30px;
+}
+
+.verse-text {
+    max-width: 700px;
+    font-family: Georgia, serif;
+    font-size: clamp(22px, 4vw, 38px);
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0;
+}
+
+
+/* ========================================= */
+/* FINAL MESSAGE                             */
+/* ========================================= */
+
+.final-message {
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow-y: auto;
+
+    padding: 100px 25px 70px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(15,12,8,0.96),
+            rgba(5,5,5,1)
+        );
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 1.8s ease,
+        visibility 1.8s ease;
+}
+
+.final-message.message-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.final-message-small {
+    font-size: 10px;
+    letter-spacing: 5px;
+    opacity: 0.55;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.final-message h2 {
+    font-size: clamp(32px, 7vw, 65px);
+    letter-spacing: 5px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 0 45px;
+}
+
+.message-content {
+    width: min(700px, 100%);
+}
+
+.message-content p {
+    font-size: 16px;
+    line-height: 1.9;
+    opacity: 0.82;
+    margin: 0 0 28px;
+    text-align: center;
+}
+
+.final-signoff {
+    margin-top: 35px;
+    font-family: Georgia, serif;
+    font-size: clamp(22px, 5vw, 34px);
+    font-style: italic;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+
+/* ========================================= */
+/* MOBILE                                    */
+/* ========================================= */
+
+@media (max-width: 600px) {
+
+    .final-journey-screen .drive-intro h1 {
+        letter-spacing: 4px;
+    }
+
+    .final-journey-screen .drive-intro-text {
+        font-size: 14px;
+    }
+
+    .final-journey-screen .drive-question {
+        font-size: 18px;
+    }
+
+    #startDrive {
+        padding: 14px 22px;
+        letter-spacing: 2px;
+    }
+
+    .message-content p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+}
+
+.love-message {
+    margin-top: 20px;
+    margin-bottom: 8px;
+
+    font-family: Georgia, serif;
+    font-size: clamp(20px, 4.5vw, 30px);
+    font-style: italic;
+
+    text-align: center;
+    opacity: 0.9;
+}
+
+/* ========================================= */
+/* SCREEN 9 — PERFECTLY CENTERED INTRO       */
+/* ========================================= */
+
+.final-journey-screen .drive-intro {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.final-journey-screen .drive-intro h1,
+.final-journey-screen .drive-intro p,
+.final-journey-screen .drive-intro button {
+    margin-left: auto;
+    margin-right: auto;
+}
