@@ -3964,3 +3964,23 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* =========================================
+   MOBILE TOUCH FIX
+========================================= */
+
+.soundtrack-content,
+.player-controls,
+.player-controls button,
+.tracklist,
+.track {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.player-controls button,
+.track {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
